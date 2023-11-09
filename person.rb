@@ -4,7 +4,7 @@ require_relative 'capitalize_decorator'
 require 'securerandom'
 
 class Person < Nameable
-  attr_reader :id
+  attr_reader :id, :rentals
   attr_accessor :name, :age
 
   def initialize(age, name, parent_permission: true)
@@ -13,6 +13,7 @@ class Person < Nameable
     @age = age
     @name = name
     @parent_permission = parent_permission
+    @rentals = []
   end
 
   def of_age?
@@ -25,6 +26,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(date, book)
+    Rental.new(date, book, self)
   end
 end
 
