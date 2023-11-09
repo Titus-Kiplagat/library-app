@@ -47,6 +47,8 @@
 - **Add new students or teachers**
 - **Add new books**
 - **Save records of who borrowed a given book and when**
+- **use the "Decorator" design pattern**
+- **set up associations**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,8 +110,6 @@ You can also check linter errors by running these commands:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **use the "Decorator" design pattern**
-- **set up associations**
 - **add basic UI**
 - **preserve data**
 - **add unit tests**
