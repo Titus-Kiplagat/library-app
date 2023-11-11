@@ -1,4 +1,3 @@
-require_relative 'person'
 require_relative 'book'
 require_relative 'rental'
 require_relative 'student'
@@ -56,15 +55,16 @@ class App
     parent_permission = gets.chomp.to_s
 
     if parent_permission =~ /^[Yy]/
-      student = Student.new('Unknown', age, name, parent_permission: true)
+      student = Student.new(age, name, parent_permission: true)
     elsif parent_permission =~ /^[Nn]/
-      student = Student.new('Unknown', age, name, parent_permission: false)
+      student = Student.new(age, name, parent_permission: false)
     else
       puts "Error: option has an invalid value (#{parent_permission})"
       return
     end
 
-    @people.push(student)
+    @people << student
+
     puts 'Person created successfully'
   end
 
@@ -78,8 +78,8 @@ class App
     print 'Specialization: '
     specialization = gets.chomp.to_s
 
-    teacher = Teacher.new(specialization, age, name)
-    @people.push(teacher)
+    @people << Teacher.new(age, name, specialization)
+
     puts 'Person created successfully'
   end
 
@@ -90,7 +90,8 @@ class App
     print 'Author: '
     author = gets.chomp.to_s
 
-    @books.push(Book.new(title, author))
+    @books << Book.new(title, author)
+
     puts 'Book created successfully'
   end
 
@@ -113,7 +114,8 @@ class App
     person = @people[person_index]
     print 'Date: '
     date = gets.chomp.to_s
-    @rentals.push(Rental.new(date, book, person))
+
+    @rentals << Rental.new(date, book, person)
     puts 'Rental created successfully'
   end
 
