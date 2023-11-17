@@ -125,10 +125,10 @@ class App
     selected = @rentals.find_all { |rental| rental.person.id == id }
     if selected.empty?
       puts "Person with id=#{id} doesn't exist"
-		else
+    else
       puts 'Rentals:'
       selected.map { |rental| puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" }
-		end
+    end
   end
 
   def run
